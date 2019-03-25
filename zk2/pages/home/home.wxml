@@ -1,0 +1,32 @@
+<!-- <home.wxml-->
+<view class="container">
+  <view class='ipt'>
+    <input placeholder='搜索品牌或车型'></input>
+  </view>
+  <view class='center'>
+  
+  </view>
+  <view class='main'>
+    <scroll-view
+      scroll-y
+      style="height: 433px;"
+      scroll-into-view="{{toView}}"
+      scroll-with-animation=true
+    >
+    <view wx:for='{{data}}' wx:key="{{index}}" id="{{index}}">
+      <text class='tit'>{{index}}</text>
+      <dl wx:for="{{item}}" wx:for-item="val" wx:for-index="ind" wx:key="{{ind}}">
+        <dt>
+          <image src='{{val.CoverPhoto}}'></image>
+        </dt>
+        <dd>
+          {{val.Name}}
+        </dd>
+     </dl>
+    </view>
+  </scroll-view>
+  </view>
+  <view class='rightBox'>
+      <text bindtouchstart='tap' data-id='{{index}}' wx:for="{{data}}" wx:key='{{index}}'>{{index}}</text>
+  </view>
+</view>
